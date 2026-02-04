@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Gilroy:wght@400;600&display=swap');
+
+body {
+  font-family: 'Gilroy', sans-serif;
+  background-color: #f5f3f1;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-box {
+  background: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  width: 360px;
+  text-align: center;
+}
+
+h2 {
+  color: #404040;
+  font-size: 28px;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+label {
+  display: block;
+  text-align: left;
+  color: #404040;
+  font-size: 14px;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.input-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 10px 40px 10px 38px;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #404040;
+  outline: none;
+}
+
+.input-box.error input {
+  border-color: #f44336;
+}
+
+.icon {
+  position: absolute;
+  left: 12px;
+  color: #133c55;
+  font-size: 16px;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 12px;
+  color: #133c55;
+  cursor: pointer;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -5px;
+  font-size: 13px;
+  color: #404040;
+}
+
+.options label {
+  margin-left: 5px;
+}
+
+.forgot {
+  color: #133c55;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.forgot:hover {
+  text-decoration: underline;
+}
+
+.error-text {
+  color: #f44336;
+  font-size: 12px;
+  margin-top: 8px;
+}
+
+.sign-in-btn {
+  background-color: #133c55;
+  color: #fff;
+  width: 100%;
+  padding: 10px 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.sign-in-btn:hover {
+  background-color: #0f2f44;
+}
+
+.register {
+  margin-top: 15px;
+  font-size: 13px;
+  color: #404040;
+}
+
+.register-link {
+  color: #133c55;
+  cursor: pointer;
+  font-weight: 600;
+}
