@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Header from '../../header/Header';
+import Footer from '../../footer/Footer';
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -97,6 +98,7 @@ const SignIn = () => {
           </form>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

@@ -81,8 +81,15 @@ label {
   color: #404040;
 }
 
+/* checkbox va label yonma-yon chiqishi uchun */
+.options div {
+  display: flex;
+  align-items: center;
+  gap: 6px; /* checkbox va matn orasidagi masofa */
+}
+
 .options label {
-  margin-left: 5px;
+  margin-left: 0; /* oldingi margin olib tashlandi */
 }
 
 .forgot {
