@@ -67,7 +67,7 @@ const Mashhura = () => {
                 you are looking for and choose one from among the best.
               </p>
 
-              <div className="search-section">
+              {/* <div className="search-section">
                 <div className="search-inputs">
                   <div className="input-group">
                     <label>Are a talent</label>
@@ -87,7 +87,7 @@ const Mashhura = () => {
                   </div>
                 </div>
                 <button className="btn btn-search">Search</button>
-              </div>
+              </div> */}
             </div>
 
             <div className="hero-illustration">
