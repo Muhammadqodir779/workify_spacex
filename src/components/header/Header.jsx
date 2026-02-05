@@ -11,7 +11,9 @@ const Header = () => {
     <header className="header">
       <div className="container">
         <div className="header-content">
-          <div className="logo">workify</div>
+          <Link to="/" className="logo">
+            workify
+          </Link>
 
           <nav className={`nav ${mobileMenuOpen ? 'nav-open' : ''}`}>
             <a href="#talents" className="nav-link">
