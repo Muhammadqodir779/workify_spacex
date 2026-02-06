@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Step3Preferences from './Step3Preferences';
+import Step3Preferences from './Step3PreferencesWrapper';
 
 const Step3PreferencesWrapper = () => {
   const navigate = useNavigate();
@@ -8,16 +8,17 @@ const Step3PreferencesWrapper = () => {
     employmentType: 'Full time',
     workplaceType: 'Onsite',
     salary: '',
-    city: ''
+    city: '',
   });
   const [errors, setErrors] = useState({});
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSelect = (name, value) => setFormData(prev => ({ ...prev, [name]: value }));
+  const handleSelect = (name, value) =>
+    setFormData((prev) => ({ ...prev, [name]: value }));
 
   const goNext = () => {
     let newErrors = {};
@@ -28,14 +29,23 @@ const Step3PreferencesWrapper = () => {
   const goBack = () => navigate('/step2');
 
   return (
-             <div className="step-wrapper fade-in">
-    <div>
-      <Step3Preferences data={formData} onChange={handleChange} onSelect={handleSelect} errors={errors} />
-      <div className="footer-nav">
-        <button className="btn btn-outline" onClick={goBack}>Back</button>
-        <button className="btn btn-primary" onClick={goNext}>Next</button>
+    <div className="step-wrapper fade-in">
+      <div>
+        <Step3Preferences
+          data={formData}
+          onChange={handleChange}
+          onSelect={handleSelect}
+          errors={errors}
+        />
+        <div className="footer-nav">
+          <button className="btn btn-outline" onClick={goBack}>
+            Back
+          </button>
+          <button className="btn btn-primary" onClick={goNext}>
+            Next
+          </button>
+        </div>
       </div>
-    </div>
     </div>
   );
 };

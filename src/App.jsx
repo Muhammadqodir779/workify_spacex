@@ -7,7 +7,7 @@ import RegisterStep1 from './components/ikromjon/registerStep1/Step1PersonalWrap
 import RegisterStep2 from './components/ikromjon/registerStep2/Step2SkillsWrapper';
 import RegisterStep3 from './components/ikromjon/registerStep3/Step3PreferencesWrapper';
 import RegisterStep4 from './components/ikromjon/registerStep4/Step4FinishWrapper';
-import Congratulations from './components/ikromjon/congratulations/Congratulations';
+import Congratulations from './components/ikromjon/Congratulations/Congratulations';
 import { Route, Routes } from 'react-router-dom';
 
 const App = () => {
@@ -23,8 +23,6 @@ const App = () => {
         <Route path="/registerStep4" element={<RegisterStep4 />} />
         <Route path="/congratulations" element={<Congratulations />} />
       </Routes>
-      <Muhammadyusuf />
-      <Ikromjon />
     </div>
   );
 };

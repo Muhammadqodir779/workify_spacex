@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Step4Finish from './Step4Finish';
+import Step4Finish from './Step4FinishWrapper';
 
 const Step4FinishWrapper = () => {
   const navigate = useNavigate();
-  const [telegramCode, setTelegramCode] = useState("");
+  const [telegramCode, setTelegramCode] = useState('');
   const [loading, setLoading] = useState(false);
 
   const handleFinish = async () => {
@@ -27,9 +27,15 @@ const Step4FinishWrapper = () => {
     <div>
       <Step4Finish onCodeChange={setTelegramCode} />
       <div className="footer-nav">
-        <button className="btn btn-outline" onClick={goBack}>Back</button>
-        <button className="btn btn-primary" onClick={handleFinish} disabled={telegramCode.length < 6}>
-          {loading ? "Sending..." : "Finish"}
+        <button className="btn btn-outline" onClick={goBack}>
+          Back
+        </button>
+        <button
+          className="btn btn-primary"
+          onClick={handleFinish}
+          disabled={telegramCode.length < 6}
+        >
+          {loading ? 'Sending...' : 'Finish'}
         </button>
       </div>
     </div>
