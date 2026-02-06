@@ -4,7 +4,7 @@ import Mashhura from './components/mashhura/Mashhura';
 import SignIn from './components/muhammadqodir/signIn/SignIn';
 // import Register from './components/ikromjon/Register/RegistrationWizard';
 import RegisterStep1 from './components/ikromjon/registerStep1/Step1PersonalWrapper';
-import RegisterStep2 from './components/ikromjon/registerStep2/Step2EducationWrapper';
+import RegisterStep2 from './components/ikromjon/registerStep2/Step2SkillsWrapper';
 import RegisterStep3 from './components/ikromjon/registerStep3/Step3PreferencesWrapper';
 import RegisterStep4 from './components/ikromjon/registerStep4/Step4FinishWrapper';
 import Congratulations from './components/ikromjon/congratulations/Congratulations';
