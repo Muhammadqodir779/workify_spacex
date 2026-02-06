@@ -6,6 +6,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Header from '../../header/Header';
 import Footer from '../../footer/Footer';
+import { loginTalent } from '../../../api/auth';
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -14,8 +15,10 @@ const SignIn = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState(false);
 
-  const handleSubmit = (e) => {
+  // 🔹 LOGIN so‘rovi
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (!email || !password) {
       toast.warning("Iltimos, bo'sh joylarni to'ldiring!", {
         autoClose: 3000,
@@ -23,11 +26,33 @@ const SignIn = () => {
       return;
     }
 
-    // Misol uchun email va password tekshiruvi
-    if (email === 'Forexaplae@mail.ru' && password === '12345') {
-      navigate('/sign_in');
-    } else {
+    try {
+      const response = await loginTalent(email, password);
+
+      // ✅ Backend muvaffaqiyatli javob qaytarsa
+      if (response.status === 200) {
+        toast.success('Kirish muvaffaqiyatli bajarildi ✅', {
+          autoClose: 2000,
+        });
+
+        // (Ixtiyoriy) Foydalanuvchi ma’lumotlarini saqlash
+        localStorage.setItem('talent', JSON.stringify(response.data.talent));
+
+        // 2 soniyadan keyin sahifaga yo‘naltirish
+        setTimeout(() => {
+          navigate('/dashboard'); // kerakli sahifangizga o‘zgartiring
+        }, 2000);
+      }
+    } catch (error) {
       setError(true);
+
+      if (error.response) {
+        toast.error(error.response.data.message || 'Login muvaffaqiyatsiz 😕', {
+          autoClose: 3000,
+        });
+      } else {
+        toast.error('Serverga ulanib bo‘lmadi ❌', { autoClose: 3000 });
+      }
     }
   };
 
