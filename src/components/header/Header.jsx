@@ -30,7 +30,7 @@ const Header = () => {
             <Link to="/sign_in" className="btn btn-signin">
               Sign in
             </Link>
-            <Link to="/register" className="btn btn-join">
+            <Link to="/registerStep1" className="btn btn-join">
               Join now
             </Link>
             <div className="language">Eng</div>

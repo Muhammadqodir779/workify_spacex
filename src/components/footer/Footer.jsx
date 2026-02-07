@@ -18,7 +18,7 @@ const Footer = () => {
               <h4 className="footer-heading">General</h4>
               <ul className="footer-links">
                 <li>
-                  <a href="/register">Sign up</a>
+                  <a href="/registerStep1">Sign up</a>
                 </li>
                 <li>
                   <a href="#portal">Portals</a>

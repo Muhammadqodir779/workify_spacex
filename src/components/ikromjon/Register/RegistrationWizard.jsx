@@ -11,12 +11,17 @@ import './Step4Finish.css';
 import './Header.css';
 import './Footer.css';
 
+import Step1Personal from '../registerStep1/Step1PersonalWrapper';
+import Step2Skills from '../registerStep2/Step2SkillsWrapper';
+import Step3Preferences from '../registerStep3/Step3PreferencesWrapper';
+import Step4Finish from '../registerStep4/Step4FinishWrapper';
+// import '../App.css';
 
 const RegistrationWizard = () => {
   const navigate = useNavigate();
   const [step, setStep] = useState(2);
   const [errors, setErrors] = useState({});
-  const [telegramCode, setTelegramCode] = useState("");
+  const [telegramCode, setTelegramCode] = useState('');
   const [loading, setLoading] = useState(false);
 
   const [formData, setFormData] = useState({
@@ -36,42 +41,42 @@ const RegistrationWizard = () => {
     employmentType: 'Full time',
     workplaceType: 'Onsite',
     salary: '',
-    city: ''
+    city: '',
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-    if (errors[name]) setErrors(prev => ({ ...prev, [name]: null }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    if (errors[name]) setErrors((prev) => ({ ...prev, [name]: null }));
   };
 
   const handleSelect = (name, value) =>
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
 
   // -------- SKILLS --------
   const addSkill = () =>
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      skills: [{ name: '', exp: '' }, ...prev.skills]
+      skills: [{ name: '', exp: '' }, ...prev.skills],
     }));
 
   const removeSkill = (index) =>
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      skills: prev.skills.filter((_, i) => i !== index)
+      skills: prev.skills.filter((_, i) => i !== index),
     }));
 
   // -------- LANGUAGES --------
   const addLanguage = () =>
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      languages: [{ name: '', level: '' }, ...prev.languages]
+      languages: [{ name: '', level: '' }, ...prev.languages],
     }));
 
   const removeLanguage = (index) =>
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      languages: prev.languages.filter((_, i) => i !== index)
+      languages: prev.languages.filter((_, i) => i !== index),
     }));
 
   // -------- VALIDATION --------
@@ -80,12 +85,12 @@ const RegistrationWizard = () => {
 
     if (step === 2) {
       const validSkills = formData.skills.filter(
-        s => s.name && s.name.trim() !== ''
+        (s) => s.name && s.name.trim() !== ''
       );
 
       if (validSkills.length === 0) {
         newErrors.skills = true;
-        alert("Kamida bitta skill kiriting!");
+        alert('Kamida bitta skill kiriting!');
       }
     }
 
@@ -99,18 +104,21 @@ const RegistrationWizard = () => {
 
     setLoading(true);
     try {
-      const res = await fetch('https://telegrambot-c32w.onrender.com/api/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email: formData.email,
-          password: formData.password,
-          verifyCode: telegramCode,
-          firstName: formData.firstName,
-          lastName: formData.lastName,
-          role: formData.userType
-        })
-      });
+      const res = await fetch(
+        'https://telegrambot-c32w.onrender.com/api/register',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email: formData.email,
+            password: formData.password,
+            verifyCode: telegramCode,
+            firstName: formData.firstName,
+            lastName: formData.lastName,
+            role: formData.userType,
+          }),
+        }
+      );
 
       const data = await res.json();
       if (data.success) navigate('/success');
@@ -122,17 +130,46 @@ const RegistrationWizard = () => {
 
   return (
     <div className="wizard-card fade-in">
-      {step === 1 && <Step1Personal data={formData} onChange={handleChange} onSelect={handleSelect} errors={errors} />}
-      {step === 2 && <Step2Skills data={formData} onChange={handleChange} addSkill={addSkill} removeSkill={removeSkill} addLanguage={addLanguage} removeLanguage={removeLanguage} errors={errors} />}
-      {step === 3 && <Step3Preferences data={formData} onChange={handleChange} onSelect={handleSelect} errors={errors} />}
+      {step === 1 && (
+        <Step1Personal
+          data={formData}
+          onChange={handleChange}
+          onSelect={handleSelect}
+          errors={errors}
+        />
+      )}
+      {step === 2 && (
+        <Step2Skills
+          data={formData}
+          onChange={handleChange}
+          addSkill={addSkill}
+          removeSkill={removeSkill}
+          addLanguage={addLanguage}
+          removeLanguage={removeLanguage}
+          errors={errors}
+        />
+      )}
+      {step === 3 && (
+        <Step3Preferences
+          data={formData}
+          onChange={handleChange}
+          onSelect={handleSelect}
+          errors={errors}
+        />
+      )}
       {step === 4 && <Step4Finish onCodeChange={setTelegramCode} />}
 
       <div className="footer-nav">
         {step > 1 && <button onClick={() => setStep(step - 1)}>Back</button>}
-        {step < 4
-          ? <button onClick={() => validateStep() && setStep(step + 1)}>Next</button>
-          : <button disabled={loading} onClick={handleFinish}>Finish</button>
-        }
+        {step < 4 ? (
+          <button onClick={() => validateStep() && setStep(step + 1)}>
+            Next
+          </button>
+        ) : (
+          <button disabled={loading} onClick={handleFinish}>
+            Finish
+          </button>
+        )}
       </div>
     </div>
   );

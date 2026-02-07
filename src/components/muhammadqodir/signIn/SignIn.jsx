@@ -115,7 +115,7 @@ const SignIn = () => {
               Have no account yet?{' '}
               <span
                 className="register-link"
-                onClick={() => navigate('/register')}
+                onClick={() => navigate('/registerStep1')}
               >
                 Register
               </span>
