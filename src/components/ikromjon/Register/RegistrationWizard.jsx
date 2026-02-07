@@ -4,7 +4,13 @@ import Step1Personal from './Step1Personal';
 import Step2Skills from './Step2Skills';
 import Step3Preferences from './Step3Preferences';
 import Step4Finish from './Step4Finish';
-import '../App.css';
+import './Step1Personal.css';
+import './Step2Skills.css';
+import './Step3Preferences.css';
+import './Step4Finish.css';
+import './Header.css';
+import './Footer.css';
+
 
 const RegistrationWizard = () => {
   const navigate = useNavigate();

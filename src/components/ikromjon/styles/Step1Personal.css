@@ -1,0 +1,25 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: var(--white);
+  border-bottom: 1px solid #eee;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--primary-color);
+}
+
+.nav-links span {
+  margin: 0 15px;
+  cursor: pointer;
+  color: var(--text-gray);
+  font-size: 14px;
+}
+
+.header-buttons .btn {
+  margin-left: 10px;
+}
