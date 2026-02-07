@@ -10,8 +10,6 @@ import '../styles/Step1Person.css';
 import '../styles/Step2Skills.css';
 import '../styles/Step3Preferences.css';
 import '../styles/Step4Finish.css';
-// import './Header.css';
-// import './Footer.css';
 import Step1Personal from '../registerStep1/Step1PersonalWrapper';
 import Step2Skills from '../registerStep2/Step2SkillsWrapper';
 import Step3Preferences from '../registerStep3/Step3PreferencesWrapper';
