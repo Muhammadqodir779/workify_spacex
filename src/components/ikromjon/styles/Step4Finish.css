@@ -1,0 +1,19 @@
+.finish-container {
+  text-align: center;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.finish-title { font-size: 24px; font-weight: 700; margin-bottom: 15px; color: var(--primary-color); }
+.finish-text { color: #666; margin-bottom: 30px; line-height: 1.5; max-width: 500px; }
+
+.otp-container { display: flex; gap: 12px; justify-content: center; margin-top: 20px; margin-bottom: 30px; }
+.otp-input {
+  width: 50px; height: 60px; border: 1px solid #E0E0E0; border-radius: 12px;
+  background-color: #F8F9FA; font-size: 24px; font-weight: bold; text-align: center; color: var(--primary-color);
+  outline: none; transition: all 0.2s ease;
+}
+.otp-input:focus { border-color: var(--primary-color); background-color: #fff; transform: translateY(-3px); }
+.otp-input.filled { background-color: #fff; border-color: #ccc; }

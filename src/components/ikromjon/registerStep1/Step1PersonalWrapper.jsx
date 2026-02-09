@@ -13,17 +13,17 @@ const Step1PersonalWrapper = () => {
     gender: 'Male',
     birthDate: '',
     location: '',
-    phone: ''
+    phone: '',
   });
   const [errors, setErrors] = useState({});
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSelect = (name, value) => {
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const goNext = () => {
@@ -39,14 +39,20 @@ const Step1PersonalWrapper = () => {
   };
 
   return (
-   <div className="step-wrapper fade-in">
-  <Step1Personal data={formData} onChange={handleChange} onSelect={handleSelect} errors={errors} />
-  <div className="footer-nav">
-    <div style={{ width: '120px' }}></div>
-    <button className="btn btn-primary" onClick={goNext}>Next</button>
-  </div>
-</div>
-
+    <div className="step-wrapper fade-in">
+      <Step1Personal
+        data={formData}
+        onChange={handleChange}
+        onSelect={handleSelect}
+        errors={errors}
+      />
+      <div className="footer-nav">
+        <div style={{ width: '120px' }}></div>
+        <button className="btn btn-primary" onClick={goNext}>
+          Next
+        </button>
+      </div>
+    </div>
   );
 };
 
