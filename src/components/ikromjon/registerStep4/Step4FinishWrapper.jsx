@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Step4Finish from './Step4Finish';
+import Step4Finish from './Step4FinishWrapper';
 
 const Step4FinishWrapper = () => {
   const navigate = useNavigate();

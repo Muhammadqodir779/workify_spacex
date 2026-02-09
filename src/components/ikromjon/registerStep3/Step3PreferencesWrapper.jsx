@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Step3Preferences from './Step3Preferences';
+import Step3Preferences from './Step3PreferencesWrapper';
 
 const Step3PreferencesWrapper = () => {
   const navigate = useNavigate();

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Step2Skills from './Step2Skills';
+import Step2Skills from './Step2SkillsWrapper';
 
 const Step2SkillsWrapper = () => {
   const navigate = useNavigate();

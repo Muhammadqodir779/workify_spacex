@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Step1Personal from './Step1Personal';
+import Step1Personal from './Step1PersonalWrapper';
 
 const Step1PersonalWrapper = () => {
   const navigate = useNavigate();
